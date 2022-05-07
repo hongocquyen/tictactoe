@@ -47,6 +47,7 @@ function drawSquare(square) {
 
     displayCurrentPlayer();
     checkWin();
+    UpdateScore();
   }
 }
 
@@ -68,8 +69,9 @@ function checkWin() {
       winnerCount.push(winner);
     }
   }
+  console.log(winner);
   if (winner) {
-    console.log("Winner is " + winner);
+    // console.log("Winner is " + winner);
     displayWinnerContainer(winner);
   } else if (xSquares.length + oSquares.length === 9) {
     displayWinnerContainer("draw");
@@ -79,18 +81,26 @@ function checkWin() {
 function displayWinnerContainer(winner) {
   if (winner === "draw") {
     document.getElementById("winning-container-title").innerHTML = "It's a";
-    document.getElementById("winning-container-subtitle").innerHTML = "DRAW!!";
+    document.getElementById("winning-container-subtitle").innerHTML = "DRAW";
+    document.getElementById("winner-img").classList.add("hide");
   } else {
-    const winnerContainer = document.getElementById("winning-container");
-    console.log(winnerContainer);
-    winnerContainer.classList.remove("hide");
-    winnerContainer.style.opacity = 0;
-    setTimeout(() => {
-      winnerContainer.style.opacity = 1;
-    }, 750);
-
     document.getElementById("winner-img").src = "assets/" + winner + ".png";
   }
+  const winnerContainer = document.getElementById("winning-container");
+  // console.log(winnerContainer);
+  winnerContainer.classList.remove("hide");
+  winnerContainer.style.opacity = 0;
+  setTimeout(() => {
+    winnerContainer.style.opacity = 1;
+  }, 750);
+}
+
+function UpdateScore() {
+  const oScore = document.getElementById("x-player-score");
+  oScore.innerHTML = winnerCount.filter((x) => x === "x").length;
+
+  const xScore = document.getElementById("o-player-score");
+  xScore.innerHTML = winnerCount.filter((o) => o === "o").length;
 }
 
 function ResetAll() {
@@ -101,7 +111,7 @@ function ResetAll() {
   oSquares = [];
 
   //   winnerCount = [];
-  curShape = winner;
+  // curShape = winner;
   winner = "";
 
   // Reset grid
