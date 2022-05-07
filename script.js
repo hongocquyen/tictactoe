@@ -84,6 +84,8 @@ function displayWinnerContainer(winner) {
     document.getElementById("winning-container-subtitle").innerHTML = "DRAW";
     document.getElementById("winner-img").classList.add("hide");
   } else {
+    document.getElementById("winning-container-title").innerHTML = "Player";
+    document.getElementById("winning-container-subtitle").innerHTML = "WON";
     document.getElementById("winner-img").src = "assets/" + winner + ".png";
   }
   const winnerContainer = document.getElementById("winning-container");
@@ -105,6 +107,7 @@ function UpdateScore() {
 
 function ResetAll() {
   document.getElementById("winning-container").classList.add("hide");
+  document.getElementById("winner-img").classList.remove("hide");
 
   // Reset values
   xSquares = [];
