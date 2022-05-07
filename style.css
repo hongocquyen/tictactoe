@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: black;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.title {
+    font-size: 3rem;
+    margin: 0;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+
+}
+.player-info{
+    background: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    margin: 2rem 1rem;
+}
+
+.player-info p{
+    margin: 2px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 80px;
+    font-size: 2rem;
+}
+.info img {
+    width: 35px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    width: 333px;
+}
+
+td {
+    width: 111px;
+    height: 111px;
+    border: 3px solid rgb(52, 52, 52);
+    cursor: pointer;
+    position: relative;
+    /* background-image: url("assets/x.png"); */
+    background-size: 110px;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+td:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+table tr:first-child td {
+    border-top: 0;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:first-child {
+    border-left: 0;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
+
+
+/* Winning container */
+
+#winning-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 1rem 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    border: 4px solid white;
+    width: 500px;
+    z-index: 99;
+    transition-duration: 500ms;
+    border-radius: 7%;
+}
+
+#winning-container p{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#winning-container img {
+    width: 200px;
+    height: 200px;
+}
+
+.again {
+    padding: 0.5rem 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: 3px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 7%;
+    cursor: pointer;
+}
+
+.again:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.hide {
+    display: none !important;
+}

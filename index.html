@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Tictactoe</title>
+  </head>
+  <body onload="setup()">
+    <!-- Title -->
+    <h5 class="title">Tictactoe</h5>
+
+    <!-- Player Info -->
+    <div class="info">
+      <div id="x-player-info" class="player-info">
+        <img src="/assets/x.png" />
+        <p id="x-player-score">0</p>
+      </div>
+      <div id="o-player-info" class="player-info">
+        <img src="/assets/o.png" />
+        <p id="o-player-score">0</p>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <table>
+      <tr>
+        <td id="square-0" onclick="drawSquare(0)"></td>
+        <td id="square-1" onclick="drawSquare(1)"></td>
+        <td id="square-2" onclick="drawSquare(2)"></td>
+      </tr>
+
+      <tr>
+        <td id="square-3" onclick="drawSquare(3)"></td>
+        <td id="square-4" onclick="drawSquare(4)"></td>
+        <td id="square-5" onclick="drawSquare(5)"></td>
+      </tr>
+
+      <tr>
+        <td id="square-6" onclick="drawSquare(6)"></td>
+        <td id="square-7" onclick="drawSquare(7)"></td>
+        <td id="square-8" onclick="drawSquare(8)"></td>
+      </tr>
+    </table>
+
+    <!-- Winning container -->
+    <div id="winning-container" class="hide">
+      <p>Player</p>
+      <img id="winner-img" src="/assets/o.png" />
+      <p>won</p>
+      <button class="again" type="submit" onclick="ResetAll()">Play again</button>
+    </div>
+  </body>
+</html>
