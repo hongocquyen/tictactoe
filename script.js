@@ -5,7 +5,7 @@ let winnerCount = [];
 let winner = "";
 let curShape = "x";
 
-const winningPosible = [
+const winningPossible = [
   [0, 1, 2],
   [0, 3, 6],
   [3, 4, 5],
@@ -52,18 +52,18 @@ function drawSquare(square) {
 }
 
 function checkWin() {
-  for (i = 0; i < winningPosible.length; i++) {
+  for (i = 0; i < winningPossible.length; i++) {
     if (
-      xSquares.includes(winningPosible[i][0]) &&
-      xSquares.includes(winningPosible[i][1]) &&
-      xSquares.includes(winningPosible[i][2])
+      xSquares.includes(winningPossible[i][0]) &&
+      xSquares.includes(winningPossible[i][1]) &&
+      xSquares.includes(winningPossible[i][2])
     ) {
       winner = "x";
       winnerCount.push(winner);
     } else if (
-      oSquares.includes(winningPosible[i][0]) &&
-      oSquares.includes(winningPosible[i][1]) &&
-      oSquares.includes(winningPosible[i][2])
+      oSquares.includes(winningPossible[i][0]) &&
+      oSquares.includes(winningPossible[i][1]) &&
+      oSquares.includes(winningPossible[i][2])
     ) {
       winner = "o";
       winnerCount.push(winner);
