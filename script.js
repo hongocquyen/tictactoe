@@ -71,26 +71,32 @@ function checkWin() {
   if (winner) {
     console.log("Winner is " + winner);
     displayWinnerContainer(winner);
+  } else if (xSquares.length + oSquares.length === 9) {
+    displayWinnerContainer("draw");
   }
 }
 
 function displayWinnerContainer(winner) {
-  const winnerContainer = document.getElementById("winning-container");
-  console.log(winnerContainer);
-  winnerContainer.classList.remove("hide");
-  winnerContainer.style.opacity = 0;
-  setTimeout(() => {
-    winnerContainer.style.opacity = 1;
-  }, 750);
+  if (winner === "draw") {
+    document.getElementById("winning-container-title").innerHTML = "It's a";
+    document.getElementById("winning-container-subtitle").innerHTML = "DRAW!!";
+  } else {
+    const winnerContainer = document.getElementById("winning-container");
+    console.log(winnerContainer);
+    winnerContainer.classList.remove("hide");
+    winnerContainer.style.opacity = 0;
+    setTimeout(() => {
+      winnerContainer.style.opacity = 1;
+    }, 750);
 
-  document.getElementById("winner-img").src = "assets/" + winner + ".png";
+    document.getElementById("winner-img").src = "assets/" + winner + ".png";
+  }
 }
 
 function ResetAll() {
   document.getElementById("winning-container").classList.add("hide");
 
   // Reset values
-
   xSquares = [];
   oSquares = [];
 
@@ -98,11 +104,8 @@ function ResetAll() {
   curShape = winner;
   winner = "";
 
-  // Reset
+  // Reset grid
   for (i = 0; i < 9; i++) {
-    // if (i != 8) {
-    //   // document.getElementById('line-' + i).style.transform = document.getElementById('line-' + i).style.transform.replace('scaleX(1)', 'scaleX(0)');
-    // }
     document.getElementById("square-" + i).style.backgroundImage = "";
     document.getElementById("square-" + i).classList.remove("disabled");
   }
